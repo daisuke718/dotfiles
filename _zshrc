@@ -68,8 +68,21 @@ export ZLS_COLORS=$LS_COLORS
 export CLICOLOR=true
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 
 ### Prompt ###
+autoload -Uz promptinit
+promptinit
 # プロンプトに色を付ける
 autoload -U colors; colors
 # 一般ユーザ時
@@ -119,9 +132,3 @@ case "${OSTYPE}" in
   ;;
 esac
 
-# cdコマンド実行後、lsを実行する
-#function cd() {
-#  builtin cd $@ && ls;
-#} 
-
-export PATH=$PATH:/Users/hiromitsudaisuke/Library/Android/sdk/platform-tools
