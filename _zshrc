@@ -125,4 +125,3 @@ esac
 #} 
 
 export PATH=$PATH:/Users/hiromitsudaisuke/Library/Android/sdk/platform-tools
-alias vim=/usr/local/Cellar/vim/7.4.898/bin/vim

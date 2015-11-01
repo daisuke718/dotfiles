@@ -1,3 +1,4 @@
+set encoding=utf-8
 set clipboard=unnamed
 set visualbell t_vb= 
 set incsearch
