@@ -6,6 +6,7 @@ set wildmenu wildmode=list:longest
 
 syntax on
 
+set paste
 set number
 
 au BufRead,BufNewFile *.md set filetype=markdown
