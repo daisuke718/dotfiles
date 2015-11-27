@@ -126,4 +126,5 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 # zaw
 # ------------------------------
 source ~/.zsh_plugins/zaw/zaw.zsh
-bindkey '^f' zaw-cdr
+bindkey '^@' zaw-cdr
+
