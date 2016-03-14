@@ -49,6 +49,9 @@ set clipboard=unnamed
 set visualbell t_vb= 
 set incsearch
 set wildmenu wildmode=list:longest
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 syntax on
 
