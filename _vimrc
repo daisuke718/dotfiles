@@ -58,6 +58,9 @@ set backup
 set backupdir=~/backup/vim/
 au BufWritePre * let &bex = '.' . strftime("%Y-%m-%d_%H:%M:%S")
 set noswapfile
+set autoindent
+set backspace=indent
+set expandtab
 
 syntax on
 
