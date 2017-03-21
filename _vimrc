@@ -56,6 +56,7 @@ set shiftwidth=4
 set softtabstop=4
 set backup
 set backupdir=~/backup/vim/
+au BufWritePre * let &bex = '.' . strftime("%Y-%m-%d_%H:%M:%S")
 set noswapfile
 
 syntax on
