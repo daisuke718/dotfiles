@@ -123,6 +123,11 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 ;
 
 # ------------------------------
+# alias
+# ------------------------------
+alias ctags="`brew --prefix`/bin/ctags"
+
+# ------------------------------
 # zaw
 # ------------------------------
 source ~/.zsh_plugins/zaw/zaw.zsh
