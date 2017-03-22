@@ -122,11 +122,28 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
   PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
 ;
 
-
 # ------------------------------
 # alias
 # ------------------------------
 alias ctags="`brew --prefix`/bin/ctags"
+
+# ------------------------------
+# python関連
+# ------------------------------
+# .pyenv
+if [ -d ~/.pyenv ] ; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+    eval "$(pyenv init -)"
+fi
+
+# ------------------------------
+# ruby関連
+# ------------------------------
+# rbenv
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/shims:${PATH} && \
+  eval "$(rbenv init -)"
 
 # ------------------------------
 # zaw

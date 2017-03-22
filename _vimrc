@@ -14,8 +14,10 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundle 'plasticboy/vim-markdown'
+  NeoBundle 'kannokanno/previm'
+  NeoBundle 'tyru/open-browser.vim'
   NeoBundle 'Shougo/neocomplete'
-"  NeoBundle 'soramugi/auto-ctags.vim'
 call neobundle#end()
 
 "==============================
@@ -54,8 +56,11 @@ set shiftwidth=4
 set softtabstop=4
 set backup
 set backupdir=~/backup/vim/
+au BufWritePre * let &bex = '.' . strftime("%Y-%m-%d_%H:%M:%S")
 set noswapfile
-
+set autoindent
+set backspace=indent
+set expandtab
 
 syntax on
 
