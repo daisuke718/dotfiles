@@ -61,6 +61,7 @@ set noswapfile
 set autoindent
 set backspace=indent
 set expandtab
+set hlsearch
 
 syntax on
 
