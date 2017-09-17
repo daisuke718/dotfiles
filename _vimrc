@@ -1,4 +1,4 @@
-"==============================
+"=============================
 " NeoBundle plugin 
 "==============================
 " Note: Skip initialization for vim-tiny or vim-small.
@@ -18,6 +18,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'kannokanno/previm'
   NeoBundle 'tyru/open-browser.vim'
   NeoBundle 'Shougo/neocomplete'
+  NeoBundle 'scrooloose/syntastic'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'tpope/vim-endwise'
 call neobundle#end()
 
 "==============================
@@ -89,3 +92,42 @@ function! Put_text_without_override_register()
   endif
 endfunction
 xnoremap <silent> p :call Put_text_without_override_register()<CR>
+
+
+"==============================
+" syntastic
+"==============================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set signcolumn=yes
+highlight SignColumn guibg=black ctermbg=black
+
+let g:syntastic_enable_signs=1 " エラー行に「>>」を表示
+let g:syntastic_always_populate_loc_list = 1 " 他プラグイン競合防止
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {'mode': 'passive'}
+"augroup AutoSyntastic
+"    autocmd!
+"    autocmd InsertLeave,TextChanged * call s:syntastic()
+"augroup END
+"function! s:syntastic()
+"    w
+"    SyntasticCheck
+"endfunction
+
+"==============================
+" NERDTree
+"==============================
+nnoremap <C-h> :NERDTree<CR>
+
+"==============================
+" run plugin command 
+"==============================
+NeoBundleCheck
+" ファイル指定で開かれた場合はNERDTreeは表示しない
+if !argc()
+    autocmd vimenter * NERDTree
+endif
