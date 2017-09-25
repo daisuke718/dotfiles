@@ -36,5 +36,5 @@ mkdir -p ~/.zsh_plugins
 git clone git://github.com/zsh-users/zaw.git ~/.zsh_plugins/zaw
 
 # make cdr cache dir
-mkdir -p .zshcache/shell
+mkdir -p ~/.zshcache/shell
 
