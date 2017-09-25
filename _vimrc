@@ -127,7 +127,3 @@ nnoremap <C-h> :NERDTree<CR>
 " run plugin command 
 "==============================
 NeoBundleCheck
-" ファイル指定で開かれた場合はNERDTreeは表示しない
-if !argc()
-    autocmd vimenter * NERDTree
-endif
