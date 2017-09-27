@@ -16,7 +16,7 @@ chsh -s /bin/zsh
 #=================#
 # vim             #
 #=================#
-brew install vim
+brew install vim --with-lua
 # install vim bundle
 mkdir -p ~/.vim/bundle
 git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
