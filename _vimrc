@@ -65,6 +65,7 @@ set autoindent
 set backspace=indent
 set expandtab
 set hlsearch
+set nowrap
 
 syntax on
 
