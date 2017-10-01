@@ -128,6 +128,16 @@ SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 alias ctags="`brew --prefix`/bin/ctags"
 
 # ------------------------------
+# tmux
+# ------------------------------
+if [[ $TMUX ]] ; then
+    # for python venv
+    if [ -e 'bin/activate' ] ; then
+        source bin/activate
+    fi
+fi
+
+# ------------------------------
 # python関連
 # ------------------------------
 # .pyenv
