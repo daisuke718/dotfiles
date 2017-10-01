@@ -39,3 +39,7 @@ git clone git://github.com/zsh-users/zaw.git ~/.zsh_plugins/zaw
 # make cdr cache dir
 mkdir -p ~/.zshcache/shell
 
+#=================#
+# tmux            #
+#=================#
+brew intall tmux
