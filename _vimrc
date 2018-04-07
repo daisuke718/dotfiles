@@ -50,7 +50,6 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "==============================
 set encoding=utf-8
 set fileencodings=utf-8,sjis
-set clipboard=unnamed
 set visualbell t_vb= 
 set incsearch
 set wildmenu wildmode=list:longest
@@ -78,22 +77,8 @@ filetype plugin indent on
 inoremap <D-v> ":set paste<CR><D-v>:set nopaste"
 nnoremap <F3> :vsp<CR> <C-w>l :exec("tjump ".expand('<cword>'))<CR>
 
-"==============================
-" vモードの置換連続ペースト用
-"==============================
-function! Put_text_without_override_register()
-  let line_len = strlen(getline('.'))
-  execute "normal! `>"
-  let col_loc = col('.')
-  execute 'normal! gv"_x'
-  if line_len == col_loc
-    execute 'normal! p'
-  else 
-    execute 'normal! P'
-  endif
-endfunction
-xnoremap <silent> p :call Put_text_without_override_register()<CR>
-
+set clipboard=unnamed
+vnoremap <silent> p "_d"*p
 
 "==============================
 " syntastic
