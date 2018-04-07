@@ -164,7 +164,17 @@ bindkey '^@' zaw-cdr
 # ------------------------------
 # Node.js
 # ------------------------------
-if [[ -s ~/.nvm/nvm.sh ]] ; then
-	source ~/.nvm/nvm.sh
+if [[ -d ~/.nodebrew/current/bin ]] ; then
+	export PATH=${PATH}:~/.nodebrew/current/bin
 fi
+
+
+# ------------------------------
+# Google Cloud SDK
+# ------------------------------
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hiromitsudaisuke/Documents/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/hiromitsudaisuke/Documents/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hiromitsudaisuke/Documents/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/hiromitsudaisuke/Documents/google-cloud-sdk/completion.zsh.inc'; fi
 
