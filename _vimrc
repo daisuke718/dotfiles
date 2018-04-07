@@ -66,9 +66,21 @@ set expandtab
 set hlsearch
 set nowrap
 
+" statusline
+set laststatus=2
+set statusline=%f
+set statusline+=%m
+set statusline+=%r
+set statusline+=%=
+set statusline+=[%Y]
+set statusline+=[%{&fileencodings}]
+set statusline+=[%l:%v]
+
 syntax on
 
 set number
+
+highlight Search cterm=NONE ctermfg=black ctermbg=yellow
 
 au BufRead,BufNewFile *.md set filetype=markdown
 
