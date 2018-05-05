@@ -83,6 +83,7 @@ set number
 highlight Search cterm=NONE ctermfg=black ctermbg=yellow
 
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile ~/.ssh/conf.d/* setf sshconfig
 
 filetype plugin indent on
 
