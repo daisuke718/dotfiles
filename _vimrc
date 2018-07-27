@@ -17,33 +17,10 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'plasticboy/vim-markdown'
   NeoBundle 'kannokanno/previm'
   NeoBundle 'tyru/open-browser.vim'
-  NeoBundle 'Shougo/neocomplete'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'tpope/vim-endwise'
 call neobundle#end()
-
-"==============================
-" neocomplete
-"==============================
-if neobundle#is_installed('neocomplete')
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_ignore_case = 1
-    let g:neocomplete#enable_smart_case = 1
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns._ = '\h\w*'
-endif
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-
-"==============================
-" auto-ctags
-"==============================
-"let g:auto_ctags = 1 
-"let g:auto_ctags_directory_list = ['.git']
 
 "==============================
 " General Settings
@@ -108,14 +85,6 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {'mode': 'passive'}
-"augroup AutoSyntastic
-"    autocmd!
-"    autocmd InsertLeave,TextChanged * call s:syntastic()
-"augroup END
-"function! s:syntastic()
-"    w
-"    SyntasticCheck
-"endfunction
 
 "==============================
 " NERDTree
