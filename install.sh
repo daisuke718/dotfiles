@@ -18,8 +18,7 @@ chsh -s /bin/zsh
 #=================#
 brew install vim --with-lua
 # install vim bundle
-mkdir -p ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s -- ~/.vim/.cache/dein
 
 # make vim backup dir
 mkdir -p ~/backup/vim

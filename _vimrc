@@ -1,6 +1,3 @@
-"=============================
-" NeoBundle plugin 
-"==============================
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -8,21 +5,32 @@ if has('vim_starting')
   if &compatible
     set nocompatible
   endif
-
-  set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  NeoBundle 'plasticboy/vim-markdown'
-  NeoBundle 'kannokanno/previm'
-  NeoBundle 'tyru/open-browser.vim'
-  NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'tpope/vim-endwise'
-  NeoBundle 'vim-scripts/grep.vim'
-  NeoBundle 'xolox/vim-session', {'depends' : 'xolox/vim-misc'}
-call neobundle#end()
+"=============================
+" dein.vim (plugin manager)
+"==============================
+set runtimepath+=~/.vim/.cache/dein/repos/github.com/Shougo/dein.vim
 
+if dein#load_state('~/.vim/.cache/dein')
+  call dein#begin('~/.vim/.cache/dein')
+
+  " plugins:
+  call dein#add('Shougo/dein.vim')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('vim-scripts/grep.vim')
+  call dein#add('vim-scripts/grep.vim')
+  call dein#add('xolox/vim-session')
+  call dein#add('xolox/vim-misc')
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" 未インストールプラグインがあったらインストールする
+if dein#check_install()
+  call dein#install()
+endif
 "==============================
 " General Settings
 "==============================
@@ -104,7 +112,3 @@ else
     let g:session_autoload = 'no'
 endif
 
-"==============================
-" run plugin command 
-"==============================
-NeoBundleCheck
