@@ -18,8 +18,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'kannokanno/previm'
   NeoBundle 'tyru/open-browser.vim'
   NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'vim-scripts/grep.vim'
+  NeoBundle 'xolox/vim-session', {'depends' : 'xolox/vim-misc'}
 call neobundle#end()
 
 "==============================
@@ -87,9 +88,21 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {'mode': 'passive'}
 
 "==============================
-" NERDTree
+" vim-session
 "==============================
-nnoremap <C-h> :NERDTree<CR>
+let g:session_directory = $HOME . '/.vim/sessions' . getcwd()
+if isdirectory(g:session_directory)
+    " session保存ディレクトリを~/.vim/sessions/<cwd>に設定
+    " vim終了時に自動保存
+    let g:session_autosave = 'yes'
+    " 引数なしでvimを起動した時にsession保存ディレクトリのdefault.vimを開く
+    let g:session_autoload = 'yes'
+    " 1分間に1回自動保存
+    let g:session_autosave_periodic = 1
+else 
+    let g:session_autosave = 'no'
+    let g:session_autoload = 'no'
+endif
 
 "==============================
 " run plugin command 
