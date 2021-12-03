@@ -38,13 +38,3 @@ git clone git://github.com/zsh-users/zaw.git ~/.zsh_plugins/zaw
 # make cdr cache dir
 mkdir -p ~/.zshcache/shell
 
-#=================#
-# tmux            #
-#=================#
-# install tmux
-brew intall tmux
-
-# install tpm
-mkdir -p ~/.tmux/plugins/
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
