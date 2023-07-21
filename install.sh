@@ -16,9 +16,7 @@ chsh -s /bin/zsh
 #=================#
 # vim             #
 #=================#
-brew install vim --with-lua
-# install vim bundle
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s -- ~/.vim/.cache/dein
+brew install vim 
 
 # make vim backup dir
 mkdir -p ~/backup/vim

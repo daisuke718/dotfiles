@@ -10,20 +10,40 @@ endif
 "=============================
 " dein.vim (plugin manager)
 "==============================
-set runtimepath+=~/.vim/.cache/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.vim/.cache/dein')
-  call dein#begin('~/.vim/.cache/dein')
-
-  " plugins:
-  call dein#add('Shougo/dein.vim')
-  call dein#add('scrooloose/syntastic')
-  call dein#add('vim-scripts/grep.vim')
-  call dein#add('xolox/vim-misc')
-
-  call dein#end()
-  call dein#save_state()
+let $CACHE = expand('~/.cache')
+if !isdirectory($CACHE)
+  call mkdir($CACHE, 'p')
 endif
+if &runtimepath !~# '/dein.vim'
+  let s:dein_dir = fnamemodify('dein.vim', ':p')
+  if !isdirectory(s:dein_dir)
+    let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+  endif
+  execute 'set runtimepath^=' .. substitute(
+        \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+endif
+
+" Set Dein base path (required)
+let s:dein_base = '/Users/hiromitsudaisuke/.cache/dein'
+
+" Set Dein source path (required)
+let s:dein_src = '/Users/hiromitsudaisuke/.cache/dein/repos/github.com/Shougo/dein.vim'
+
+" Set Dein runtime path (required)
+execute 'set runtimepath+=' . s:dein_src
+
+call dein#begin(s:dein_base)
+
+" plugins:
+call dein#add(s:dein_src)
+call dein#add('scrooloose/syntastic')
+call dein#add('vim-scripts/grep.vim')
+call dein#add('xolox/vim-misc')
+
+call dein#end()
 
 " 未インストールプラグインがあったらインストールする
 if dein#check_install()
