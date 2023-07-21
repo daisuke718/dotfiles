@@ -10,9 +10,6 @@ for file in ${files} ; do
     ln -s ${dotfiles_path}/${filename} ~/${filename/_/.}
 done
 
-# Change Login Shell
-chsh -s /bin/zsh
-
 #=================#
 # vim             #
 #=================#
@@ -28,10 +25,10 @@ brew install ctags
 # zsh             #
 #=================#
 # make zsh plugin dir
-mkdir -p ~/.zsh_plugins
+#mkdir -p ~/.zsh_plugins
 
 # install zaw
-git clone git://github.com/zsh-users/zaw.git ~/.zsh_plugins/zaw
+#git clone git://github.com/zsh-users/zaw.git ~/.zsh_plugins/zaw
 
 # make cdr cache dir
 mkdir -p ~/.zshcache/shell
