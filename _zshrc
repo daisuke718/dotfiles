@@ -3,6 +3,7 @@
 # ------------------------------
 # General Settings
 # ------------------------------
+typeset -U path PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 if [ ! `echo $PATH | grep /usr/local/bin` ]; then
     export PATH=/usr/local/bin:$PATH
